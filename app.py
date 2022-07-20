@@ -89,7 +89,6 @@ def process_file(key):
 
 
 def get_key(record: str) -> Optional[str]:
-    import pdb; pdb.set_trace()
     if record.get("s3") is not None:
         return record["s3"]["object"]["key"]
     elif record.get("Sns") is not None:
