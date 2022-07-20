@@ -1,0 +1,22 @@
+{
+  "Records": [
+      {
+          "EventSource": "aws:sns",
+          "EventVersion": "1.0",
+          "EventSubscriptionArn": "arn:aws:sns:ap-southeast-2:615645230945:imos-data-lab-raw-bucket-create-notifications:4a7e4b22-cafd-4d04-b0b5-c6e342d2694c",
+          "Sns": {
+              "Type": "Notification",
+              "MessageId": "09ee9ef0-ca0a-5025-9f9b-c5a1af41db87",
+              "TopicArn": "arn:aws:sns:ap-southeast-2:615645230945:imos-data-lab-raw-bucket-create-notifications",
+              "Subject": "Amazon S3 Notification",
+              "Message": "{\"Records\":[{\"eventVersion\":\"2.1\",\"eventSource\":\"aws:s3\",\"awsRegion\":\"ap-southeast-2\",\"eventTime\":\"2022-07-20T02:06:03.493Z\",\"eventName\":\"ObjectCreated:Copy\",\"userIdentity\":{\"principalId\":\"AWS:AROAJXRC7RXCGZKPHOKHK:1658282601307749000\"},\"requestParameters\":{\"sourceIPAddress\":\"118.209.103.212\"},\"responseElements\":{\"x-amz-request-id\":\"YH4MS42Z889BJ44B\",\"x-amz-id-2\":\"CziRTEVyw4ykMfR/f1BOyCdhHvO4AY1zkLVWrdH1EGWTy0teNdN/iVJggf8QdNByTFpmviT+RlmQ40Lbpn7Ba5IlNKq3n60WDgwwm2EKT98=\"},\"s3\":{\"s3SchemaVersion\":\"1.0\",\"configurationId\":\"imos-data-lab-raw-create-events\",\"bucket\":{\"name\":\"imos-data-lab-raw\",\"ownerIdentity\":{\"principalId\":\"A209JYKIY9CLVN\"},\"arn\":\"arn:aws:s3:::imos-data-lab-raw\"},\"object\":{\"key\":\"IMOS/SOOP/SOOP-XBT/REALTIME_BUFR/TEST/IOSS01_AMMC_20220102015600_XEKXW9W.csv\",\"size\":569073,\"eTag\":\"0ec7aaa0f8f0ebff80231acc6d62675f\",\"sequencer\":\"0062D7630B571B8F48\"}}}]}",
+              "Timestamp": "2022-07-20T02:06:03.990Z",
+              "SignatureVersion": "1",
+              "Signature": "eE4ykeFXGeXXIRxXqc0M4/eaNvVEEggN4xs2AhCWRdEEBLNzeKavOfGBHUeZNQFRcIwFQsbmy6+0YPiV/qqCRlVZPn3UoD6FZkN57ehMAO/TIIUYWJhHyTpIwkiCkUGxdzVnTyCDC6MzqF93uiWSj5nOUQqLoGoyRUQkQhAJKCqhUpOzWCa7NchQy1uWSMW352fZVpZQnHVUL0MFH+C4aYFHzrossThDzcBInt5kyjUOhQ5LYthQtJc6wBjgJd97Flsj4fyGdbHE/+erR8p456oleQGxYegkNDSWBR5RyLPdhDxmVDRbqmNSXQxo4WDrhRoC/ejQMuCQzCWsxmMd3w==",
+              "SigningCertUrl": "https://sns.ap-southeast-2.amazonaws.com/SimpleNotificationService-7ff5318490ec183fbaddaa2a969abfda.pem",
+              "UnsubscribeUrl": "https://sns.ap-southeast-2.amazonaws.com/?Action=Unsubscribe&SubscriptionArn=arn:aws:sns:ap-southeast-2:615645230945:imos-data-lab-raw-bucket-create-notifications:4a7e4b22-cafd-4d04-b0b5-c6e342d2694c",
+              "MessageAttributes": {}
+          }
+      }
+  ]
+}

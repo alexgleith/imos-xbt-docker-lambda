@@ -1,10 +1,11 @@
+import json
+import logging
+import os
+
+from typing import Optional
 import awswrangler as wr
 import pandas as pd
 from aodndata.soop.soop_xbt_nrt import parse_bufr_file
-
-import os
-import logging
-
 
 # Get some destinations for the results
 BUCKET_SOURCE = os.environ.get("BUCKET_SOURCE", "imos-data-lab-raw")
@@ -87,11 +88,20 @@ def process_file(key):
             return result
 
 
+def get_key(record: str) -> Optional[str]:
+    import pdb; pdb.set_trace()
+    if record.get("s3") is not None:
+        return record["s3"]["object"]["key"]
+    elif record.get("Sns") is not None:
+        message = json.loads(record["Sns"]["Message"])
+        return message["Records"][0]["s3"]["object"]["key"]
+
+
 def handler(event, _):
     logger.info(f"Event: {event}")
 
     for record in event["Records"]:
-        key = record["s3"]["object"]["key"]
+        key = get_key(record)
         if "XBT" in key:
             result = process_file(key)
             logger.info(f"Processed file {key} with the result {result}")
