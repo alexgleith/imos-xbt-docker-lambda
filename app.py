@@ -59,7 +59,7 @@ def process_file(key):
         # Get time
         time = metadata["profile_geotime"]["date_utc"]
 
-        # Get a UID (assumed to be unique cause it says it is)
+        # Get a UID (assumed to be unique for each survey, so ~1,000 rows)
         uid = metadata["profile_metadata"]["XBT_uniqueid"]
 
         # Now we want a dataframe...
@@ -67,6 +67,7 @@ def process_file(key):
         df["uid"] = uid
         df["geom"] = point
         df["datetime"] = time
+        df["file_name"] = key
         df["datetime"] = pd.to_datetime(df.datetime)
         for var in data_headers_array:
             df[var] = df[var].astype(int)
@@ -79,8 +80,8 @@ def process_file(key):
             dataset=True,
             database=DATABASE_NAME,
             table=TABLE_NAME,
-            mode="append",
-            partition_cols=["uid"],
+            mode="overwrite_partitions",  # This is like an upsert
+            partition_cols=["glob_gtspp", "file_name", "uid"],
         )
         if not result:
             logger.error(f"Failed to write {file} to parquet")
