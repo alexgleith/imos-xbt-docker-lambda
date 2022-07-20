@@ -8,7 +8,7 @@ RUN pip3 install https://imos-artifacts.s3.ap-southeast-2.amazonaws.com/promoted
     pip3 install https://imos-artifacts.s3.ap-southeast-2.amazonaws.com/promoted/python-aodndata/production/aodndata-1.3.79-py3-none-any.whl
 
 COPY requirements.txt  .
-RUN  pip3 install -r requirements.txt
+RUN  pip3 install -r requirements.txt --target "${LAMBDA_TASK_ROOT}"
 
 # Copy function code
 COPY app.py ${LAMBDA_TASK_ROOT}
