@@ -67,7 +67,7 @@ def process_file(key):
         df["uid"] = uid
         df["geom"] = point
         df["datetime"] = time
-        df["file_name"] = key
+        df["file_name"] = key.split("/")[-1]
         df["datetime"] = pd.to_datetime(df.datetime)
         for var in data_headers_array:
             df[var] = df[var].astype(int)
