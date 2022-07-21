@@ -2,3 +2,4 @@ awswrangler
 python_levenshtein
 fsspec
 s3fs
+h5netcdf

@@ -11,7 +11,7 @@ COPY requirements.txt  .
 RUN  pip3 install -r requirements.txt --target "${LAMBDA_TASK_ROOT}"
 
 # Copy function code
-COPY app.py ${LAMBDA_TASK_ROOT}
+COPY app.py app_copy.py ${LAMBDA_TASK_ROOT}/
 
 # Smoke test!
 RUN python -c "from aodndata.soop.soop_xbt_nrt import parse_bufr_file"
